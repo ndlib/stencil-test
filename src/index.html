@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <script src="/build/mycomponent.js"></script>
+</head>
+<body>
+
+  <h1>Component trapped events</h1>
+
+  <object-viewer
+    urls='["https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object1.json", "https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object2.json", "https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object3.json"]'
+  >
+    <cycle-viewer></cycle-viewer>
+  </object-viewer>
+
+  <div id="section2">
+    <h1>Page Trapped Events</h1>
+    <object-viewer
+      urls='["https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object1.json", "https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object2.json", "https://s3.us-east-2.amazonaws.com/dan-web-component-test-data/data/object3.json"]'
+    ></objectViewer>
+    <cycle-viewer></cycle-viewer>
+  </div>
+
+  <script>
+    element = document.querySelector('#section2 cycle-viewer');
+    element.addEventListener('cycleClicked', function(event) {
+      document.querySelector('#section2 object-viewer').nextFile();
+    });
+  </script>
+</body>
+</html>
